@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="discount_amt_total.TaxTotalsField" t-inherit="account.TaxTotalsField" t-inherit-mode="extension">
+        <xpath expr="//table/tbody" position="inside">
+            <t t-if="totals.discount_amt">
+                <tr style="border-top: 1px solid #2d31424f;">
+                    <td class="o_td_label">
+                        <label class="o_form_label o_tax_total_label">Discount Amt</label>
+                    </td>
+
+                    <td class="o_list_monetary">
+                            <span
+                                    name="discount_amt"
+                                    t-out="formatMonetary(totals.discount_amt)"
+                                    style="font-size: 1.3em; font-weight: bold; white-space: nowrap;"
+                            />
+                    </td>
+                </tr>
+                <tr t-if="totals.company_currency_discount_amt">
+                    <td colspan="2">
+                        (<span t-out="totals.company_currency_discount_amt" style="font-size: 1.1em;"/>)
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </t>
+
+</templates>
